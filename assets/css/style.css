@@ -1,164 +1,179 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
 }
 
 .wrapper {
-    background: url(../images/window-imgaes/BG.png) no-repeat;
+    background: url('../images/window-imgaes/BG.png') no-repeat;
     background-size: 100% 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
 }
 
-.content {
-    padding: 30px;
+.language-selector {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
 }
 
-.country-img img {
+.language-dropdown {
+    background: transparent;
+    border: none;
+}
+
+.language-dropdown img {
     width: 40px;
+    transition: transform 0.2s ease;
 }
 
-.country-img {
+.language-dropdown:hover img {
+    transform: scale(1.1);
+}
+
+.dropdown-menu {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.1);
+    min-width: 80px;
+    text-align: center;
+}
+
+.dropdown-menu .dropdown-item {
     display: flex;
-    gap: 15px;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: background-color 0.3s ease;
 }
 
-.welcome-card img {
-    width: 25%;
+.dropdown-menu .dropdown-item:hover {
+    background-color: rgba(0,0,0,0.05);
+}
+
+.dropdown-menu .dropdown-item img {
+    width: 30px;
+    margin-right: 10px;
 }
 
 .welcome-card {
     text-align: center;
     position: relative;
-    top: -40px;
+    margin-bottom: 20px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.welcome-card img {
+    max-width: 75%;
+    height: auto;
 }
 
 .welcome-text {
     position: absolute;
-    top: 80px;
-    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
 }
 
 .welcome-text img {
-    width: 300px;
+    max-width: 85%;
+    height: auto;
 }
 
-.button img {
-    width: 26%;
-}
-
-.button {
-    text-align: center;
+/* Play Button */
+.play-button {
     position: relative;
-    top: -25px;
-}
-
-.button-text {
-    position: absolute;
-    top: 45px;
+    max-width: 300px;
     width: 100%;
-}
-
-.button-text img {
-    width: 250px;
-}
-
-.telegram-text {
+    margin: 0 auto;
     text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease;
 }
 
-.telegram-text img {
-    width: 40%;
+.play-button:hover {
+    transform: scale(1.05);
 }
 
-.telegram-img {
-    text-align: end;
-    margin-top: -98px;
+.play-button img {
+    max-width: 100%;
+    height: auto;
 }
 
-.telegram-img img {
-    width: 130px;
+.play-button-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
 }
 
-body {
-    overflow-x: hidden; 
+/* Telegram and Service Sections */
+.telegram-text, .service-text {
+    text-align: center;
+    margin: 20px 0;
 }
 
-.service-text{
-    padding-top: 20px;
+.telegram-text img, .service-text img {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
 }
 
-.service-text img{
-    width: 300px;
+.telegram-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    max-width: 80px;
+    width: 100%;
+    z-index: 20;
+    transition: transform 0.2s ease;
 }
-@media screen and (min-width:1900px) {
-    .welcome-card img,
-    .welcome-text img,
-    .button img{
-        width: auto;
+
+.telegram-icon img{
+    width: 90px;
+}
+
+.telegram-icon:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        background-size: 100% 100% !important;
+        background: url(../images/mobile-bg.jpg) no-repeat;
+        justify-content: start;
     }
 
-    .button-text{
-        top: 84px;
-    }
-
-    .welcome-text{
-        top: 120px;
-    }
-}
-
-
-@media screen and (max-width:767px) {
-    .wrapper{
-        background: url("../images/mobile-bg.jpg");
-        min-height: 100vh;
-        background-size: 100% 100%;
-        display: inline-block;
-    }
-
-    .telegram-img {
-        text-align: end;
-        position: absolute;
-        bottom: 43px;
-        right: 20px;
+    .language-selector {
+        top: 10px;
+        right: 0px;
     }
 
     .welcome-text {
-        position: absolute;
-        top: 52px;
-    }
-
-    .welcome-text img {
-        width: 30% !important;
-    }
-    .button img {
         width: 50%;
     }
 
-    .button-text {
-        position: absolute;
-        top: 9px;
-        width: 100%;
-    }
-    .button-text img{
-        width: 100px;
+    .play-button {
+        max-width: 250px;
     }
 
-    .welcome-card{
-        top: 10px;
+    .telegram-icon {
+        max-width: 60px;
+        bottom: 40px;
+        right: 60px;
     }
-
-    .telegram-text img,
-    .welcome-card img {
-        width: 60%;
-    }
-
-    .button{
-        margin-top: 60px;
-    }
-    
 }
-
